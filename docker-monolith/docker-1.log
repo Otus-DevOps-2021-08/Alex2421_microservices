@@ -1,4 +1,5 @@
-(base) ➜  ~ git:(master) ✗ docker images
+# my image
+
 REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
 yourname/ubuntu-tmp-file   latest    4dbda2201d80   3 minutes ago   63.1MB
 <none>                     <none>    b1883ff86fc7   9 minutes ago   63.1MB
