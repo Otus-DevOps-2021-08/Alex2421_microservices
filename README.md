@@ -5,3 +5,5 @@ Alex2421 microservices repository
 # Для сдачи домашнего задания, необходимо сохранить вывод команды
 # docker images в файл docker-monolith/docker-1.log и
 # закоммитить в репозиторий
+
+# https://github.com/Nordstrom/docker-machine/blob/master/docs/install-machine.md
