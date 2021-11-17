@@ -2,7 +2,7 @@
 Alex2421 microservices repository
 
 
-# https://github.com/Nordstrom/docker-machine/blob/master/docs/install-machine.md
+
     Задание №12 Docker-2
 Технология контейнеризации. Введение в Docker
 
