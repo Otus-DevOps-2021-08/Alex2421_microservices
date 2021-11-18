@@ -2,19 +2,13 @@
 Alex2421 microservices repository
 
 
-# https://github.com/Nordstrom/docker-machine/blob/master/docs/install-machine.md
-    Задание №12 Docker-2
-Технология контейнеризации. Введение в Docker
+Приложение запустил в двух сетях,
+С помощью docker network connect объеденил UI-COMMENT/UI-POST, DB-POST/DB-COMMENT.
 
-Сделано:
-  Создание docker host
-  Создание своего образа
-  Работа с Docker Hub
-Запуск проекта:
-  docker build -t reddit:latest .
-  docker run --name reddit -d --network=host reddit:latest
-  docker tag reddit:latest alexander2411/otus-reddit:1.0
-  docker push alexander2411/otus-reddit:1.0
-  docker run --name reddit -d -p 9292:9292 alexander2411/otus-reddit:1.0
-Проверка работоспособности:
-  Перейти по ссылке http://<ip_adress>:9292
+Запустил сборку приложения с помощью Docker-compose. Параметризованные параметры записаны в файл docker-compose.yml.
+Добавлено переменное окружение, сетевые алиасы.
+ Имя проекта задается с помощью параметра container_name.
+
+Создал docker-compose.override.yml
+Для того чтобы поменять код приложения можно с помощью монтирования volume.
+Puma запускается с ключом --debug -w 2
