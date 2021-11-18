@@ -3,18 +3,7 @@ Alex2421 microservices repository
 
 
 
-    Задание №12 Docker-2
-Технология контейнеризации. Введение в Docker
 
-Сделано:
-  Создание docker host
-  Создание своего образа
-  Работа с Docker Hub
-Запуск проекта:
-  docker build -t reddit:latest .
-  docker run --name reddit -d --network=host reddit:latest
-  docker tag reddit:latest alexander2411/otus-reddit:1.0
-  docker push alexander2411/otus-reddit:1.0
-  docker run --name reddit -d -p 9292:9292 alexander2411/otus-reddit:1.0
-Проверка работоспособности:
-  Перейти по ссылке http://<ip_adress>:9292
+Имя сервиса в COMPOSE основывается на переменной PROJECT_NAME,
+Переменная состоит из имени директории в которой располагается.
+Для переопределения имени необходимо передать --project-name, или использовать COMPOSE_PROJECT_NAME в переменной окружения.
