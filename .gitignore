@@ -23,3 +23,14 @@ inventory.bak2
 .molecule
 .cache
 .pytest_cache
+*variables.json
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+.vscode/
+*.DS_Store
+*.retry
+*service-account.json
+my_venv
