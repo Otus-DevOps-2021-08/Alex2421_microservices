@@ -1,18 +1,15 @@
 image: ruby:2.4.2
 
 stages:
-  - build
-  - test
-  - review
-  - stage
-  - production
+ - build
+ - test
+ - review
+ - stage
+ - production
+
 
 variables:
-  DATABASE_URL: 'mongod://mongo/user_posts'
-
-before_script:
-  - cd reddit
-  - bundle install
+ DATABASE_URL: 'mongodb://mongo/user_posts'
 
 build_job:
   stage: build
@@ -21,10 +18,8 @@ build_job:
 
 test_unit_job:
   stage: test
-  services:
-    - mongo:latest
   script:
-    - ruby simpletest.rb
+    - echo 'Testing 1'
 
 test_integration_job:
   stage: test
@@ -36,27 +31,47 @@ deploy_dev_job:
   script:
     - echo 'Deploy'
   environment:
-    name: dev
-    url: http://dev.example.com
+   name: dev
+   url: http://dev.example.com
 
-stage:
+branch review:
+  stage: review
+  script: echo "Deploy to $CI_ENVIRONMENT_SLUG"
+  environment:
+   name: branch/$CI_COMMIT_REF_NAME
+   url: http://$CI_ENVIRONMENT_SLUG.example.com
+  only:
+   - branches
+  except:
+   - master   
+
+staging:
   stage: stage
   when: manual
-  only:
-    - /^\d+\.\d+\.\d+/
   script:
     - echo 'Deploy'
   environment:
-    name: stage
-    url: https://beta.example.com
+   name: beta
+   url: http://beta.example.com
+
+stage:
+ stage: stage
+ when: manual
+ only:
+   - /^\d+\.\d+\.\d+/
+ script:
+   - echo 'Deploy'
+ environment:
+   name: stage
+   url: https://beta.example.com   
 
 production:
-  stage: production
-  when: manual
-  only:
-    - /^\d+\.\d+\.\d+/
-  script:
-    - echo 'Deploy'
-  environment:
-    name: production
-    url: https://example.com
+ stage: production
+ when: manual
+ script:
+   - echo 'Deploy'
+ environment:
+   name: production
+   url: http://example.com   
+
+   
