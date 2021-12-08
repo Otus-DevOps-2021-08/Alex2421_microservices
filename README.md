@@ -18,3 +18,9 @@ Alex2421 microservices repository
   docker run --name reddit -d -p 9292:9292 alexander2411/otus-reddit:1.0
 Проверка работоспособности:
   Перейти по ссылке http://<ip_adress>:9292
+  
+  
+  
+  
+  домашнее задание N16 (gitlab-ci-1)
+Было сделано: Основное задание Развернут gitlab-ce, запущен gitlab-runner, runner зарегистрирован, проверена работа пайплайнов с окружениями.
