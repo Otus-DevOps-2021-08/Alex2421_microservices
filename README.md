@@ -2,22 +2,14 @@
 Alex2421 microservices repository
 
 
+Приложение запустил в двух сетях,
+С помощью docker network connect объеденил UI-COMMENT/UI-POST, DB-POST/DB-COMMENT.
 
-    Задание №12 Docker-2
-Технология контейнеризации. Введение в Docker
+Запустил сборку приложения с помощью Docker-compose. Параметризованные параметры записаны в файл docker-compose.yml.
+Добавлено переменное окружение, сетевые алиасы.
+ Имя проекта задается с помощью параметра container_name.
 
-Сделано:
-  Создание docker host
-  Создание своего образа
-  Работа с Docker Hub
-Запуск проекта:
-  docker build -t reddit:latest .
-  docker run --name reddit -d --network=host reddit:latest
-  docker tag reddit:latest alexander2411/otus-reddit:1.0
-  docker push alexander2411/otus-reddit:1.0
-  docker run --name reddit -d -p 9292:9292 alexander2411/otus-reddit:1.0
-Проверка работоспособности:
-  Перейти по ссылке http://<ip_adress>:9292
+
   
   
   
