@@ -2,17 +2,21 @@
 Alex2421 microservices repository
 
 
-Приложение запустил в двух сетях,
-С помощью docker network connect объеденил UI-COMMENT/UI-POST, DB-POST/DB-COMMENT.
+Задание_17: Создание и запуск системы мониторинга Prometheus
 
-Запустил сборку приложения с помощью Docker-compose. Параметризованные параметры записаны в файл docker-compose.yml.
-Добавлено переменное окружение, сетевые алиасы.
- Имя проекта задается с помощью параметра container_name.
+1.Создан образ prometheus
+2.Создан образ blackbox-exporter/добавлены экспортеры в prometheus:
+3.Prometheus-node-exporter
+4.Percona-mongodb_exporter
+5.Prometheus-blackbox-exporter
 
+Добавлены сервисы в docker-compose.yml:
+-prometheus -node-exporter -mongodb-exporter -blackbox-exporter
 
-  
-  
-  
-  
- Домашнее задание N16 (gitlab-ci-1)
-Было сделано: Основное задание Развернут gitlab-ce , проверена работа пайплайнов с окружениями.
+Созданы Makefile для сборки образов
+Для запуска сервиса:
+Чтобы собрать образы нужно выполнить команду:
+
+make
+Для запуска использовать команду:
+cd docker && docker-compose up -d
